@@ -1,0 +1,48 @@
+<head>
+  <title>dynamic-templates</title>
+</head>
+
+<body>
+  {{> hello}}
+  
+  <hr />
+  {{> layout}}
+</body>
+
+<template name="layout">
+  <h2>Dynamic templates</h2>
+  {{#each userTemplates}}
+    {{> Template.dynamic template=page data=pageData}}
+  {{/each}}
+  
+  <hr />
+  <h2>Session template</h2>
+  <button class="show-page-a">Show page A</button>
+  <button class="show-page-b">Show page B</button>
+  <button class="show-page-c">Show page C</button>
+  {{> Template.dynamic template=sessionTemplate data=sessionTemplateData}}
+</template>
+
+<template name="hello">
+  <h1>Welcome to Dynamic templates lesson!</h1>
+  <p>
+      Go to 
+      <a href="udemy.com/build-your-first-real-time-web-application-with-meteorjs/">Build your first real-time application with Meteor.js</a>
+      and learn more.
+  </p>
+</template>
+
+<template name="pageA">
+  <h1>{{pageTitle}}</h1>
+  <p>This is page A, this page can have different look than other pages...</p>
+</template>
+
+<template name="pageB">
+  <h1>{{pageTitle}}</h1>
+  <p>This is page B, this page can have different look than other pages...</p>
+</template>
+
+<template name="pageC">
+  <h1>{{pageTitle}}</h1>
+  <p>This is page C, this page can have different look than other pages...</p>
+</template>
